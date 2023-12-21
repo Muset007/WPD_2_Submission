@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Alumni</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.10/dist/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/public/styles/about.css"> 
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Alumni Management</h1>
+        <a class="btn btn-primary mb-3" href="/dashboard">Back to Dashboard</a>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% alumni.forEach(function(alumnus) { %>
+                        <tr>
+                            <td id="name-<%= alumnus._id %>"><%= alumnus.name %></td>
+                            <td id="username-<%= alumnus._id %>"><%= alumnus.username %></td>
+                            <td id="email-<%= alumnus._id %>"><%= alumnus.email %></td>
+                            <td>
+                                <button class="btn btn-primary update-btn" data-id="<%= alumnus._id %>" data-toggle="modal" data-target="#updateModal">Update</button>
+                                <button class="btn btn-danger delete-btn" data-id="<%= alumnus._id %>" data-toggle="modal" data-target="#deleteConfirmationModal">Delete</button>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <h2>Add New Alumnus</h2>
+        <form action="/alumni/add" method="post" class="form-inline">
+            <input type="text" class="form-control mb-2 mr-sm-2" name="name" placeholder="Name" required>
+            <input type="text" class="form-control mb-2 mr-sm-2" name="username" placeholder="Username" required>
+            <input type="email" class="form-control mb-2 mr-sm-2" name="email" placeholder="Email" required>
+            <input type="password" class="form-control mb-2 mr-sm-2" name="password" placeholder="Password" required minlength="6">
+            <button type="submit" class="btn btn-success mb-2">Add</button>
+        </form>
+    </div>
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update Alumnus Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
+                        <div class "form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password (leave blank to keep current password)</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this alumnus?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete">Confirm Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+    </footer>
+    <script>
+        $(document).ready(function() {
+            var alumnusIdToDelete;
+    
+            $('.update-btn').click(function() {
+                // Extract the ID from the data-id attribute
+                var alumnusId = $(this).data('id');
+    
+                // Use the ID to get current values and update the form action
+                var name = $('#name-' + alumnusId).text();
+                var username = $('#username-' + alumnusId).text();
+                var email = $('#email-' + alumnusId).text();
+                var form = $('#updateModal').find('form');
+    
+                form.attr('action', '/alumni/update/' + alumnusId);
+                form.find('[name="name"]').val(name);
+                form.find('[name="username"]').val(username);
+                form.find('[name="email"]').val(email);
+    
+                $('#updateModal').modal('show');
+            });
+    
+            $('.delete-btn').click(function() {
+                alumnusIdToDelete = $(this).data('id');
+            });
+    
+            $('#confirm-delete').click(function() {
+                $.ajax({
+                    url: '/alumni/delete/' + alumnusIdToDelete,
+                    type: 'POST',
+                    success: function(response) {
+                        // Refresh the page or update the table to reflect the deletion
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Error: " + xhr.responseText);
+                    }
+                });
+            });
+    
+            $('form').submit(function(e) {
+                // Check if the form being submitted is for adding a new alumnus
+                if ($(this).attr('action').indexOf('/alumni/add') >= 0) {
+                    var password = $(this).find('[name="password"]').val();
+                    if (password.length < 6) {
+                        alert('Password must be at least 6 characters long.');
+                        e.preventDefault();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

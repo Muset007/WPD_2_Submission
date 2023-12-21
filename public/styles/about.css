@@ -1,0 +1,121 @@
+/* Set a specific background image from Unsplash */
+body {
+    background-image: url('https://source.unsplash.com/featured/?university,alumni'); /* Use the Unsplash image URL */
+    background-size: cover; /* Cover the entire page */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fixed background */
+    color: #000000; /* Black text for better readability on the background image */
+    font-family: Arial, sans-serif; /* Choose a suitable font-family */
+}
+
+/* Header and Navbar Styling */
+header {
+    background-color: transparent; /* Make the header background transparent */
+    color: #fff; /* White text for contrast */
+    padding: 10px 0; /* Adjust padding as needed */
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove shadow */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #333; /* Dark background for the navbar */
+    color: #fff; /* White text for contrast */
+    padding: 10px 0; /* Adjust padding as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Navigation Link Styling */
+.navbar-nav .nav-link {
+    color: #fff; /* White color for visibility */
+    font-size: 1.1em; /* Slightly larger font size */
+    font-weight: bold; /* Bold text */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8f8f8; /* Slightly lighter color on hover */
+    text-decoration: underline; /* Underline on hover for emphasis */
+}
+
+/* Container for Readability */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for contrast */
+    padding: 20px;
+    border-radius: 5px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Program Section Styling */
+.program-section {
+    background-color: #333; /* Dark background for program section */
+    padding: 20px;
+    border-radius: 5px; /* Rounded corners for a modern look */
+    margin-top: 20px;
+}
+
+.program-section h2 {
+    color: #fff; /* White text for program section heading */
+}
+.profile-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-image-placeholder {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd; /* Placeholder background color */
+    margin-right: 8px;
+}
+.user-type {
+    font-weight: bold;
+    color: black;
+}
+.form-wrapper {
+    background-color: transparent; 
+}
+.btn-custom-dark {
+    background-color: #343a40;
+    color: white;
+}
+.event-card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px; /* Adjust the max-width as needed */
+}
+
+.event-card:hover {
+    box-shadow: 0 0 11px rgba(15, 15, 15, 0.2);
+}
+
+.event-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.event-title {
+    flex: 1;
+}
+
+.event-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.event-actions a {
+    margin-right: 0.5rem;
+}
+
+/* Add margin to the bottom of each event card */
+.event-card + .event-card {
+    margin-top: 20px;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Alumni Events</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Lux Theme from Bootswatch -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/public/styles/about.css">
+</head>
+<body>
+    <header class="mb-4">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="/">Alumni Events</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item current">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <% if (user) { %>
+                            <li class="nav-item current">
+                                <a class="nav-link" href="/dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                        <% } else { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register">Register</a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="mb-3">About Us</h1>
+        <p>Welcome to the Alumni Events page. Here you can find information about upcoming events and activities.</p>
+        
+        <% if (user) { %>
+            <p>Welcome, <%= user.username %>! <a href="/logout" class="highlight">Logout</a></p>
+        <% } else { %>
+            <p><a href="/login" class="highlight">Login</a> | <a href="/register" class="highlight">Register</a></p>
+        <% } %>
+
+        <h2>Upcoming Events</h2>
+        <ul class="events list-unstyled">
+            <% events.forEach(function(event, index) { %>
+                <li class="media bg-white p-3 mb-3">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1"><%= event.title %></h5>
+                        <%= new Date(event.date).toDateString() %>
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#eventModal<%= index %>">
+                            View Details
+                        </button>
+                    </div>
+                </li>
+
+                <!-- Modal -->
+                <div class="modal fade" id="eventModal<%= index %>" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel<%= index %>" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="eventModalLabel<%= index %>"><%= event.title %></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Date:</strong> <%= new Date(event.date).toDateString() %></p>
+                                <p><strong>Time:</strong> <%= event.time %></p>
+                                <p><strong>Place:</strong> <%= event.place %></p>
+                                <p><strong>Description:</strong></p>
+                                <p><%= event.description %></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </ul>
+            <footer>
+        <div class="container">
+            &copy; <%= new Date().getFullYear() %> Alumni Events. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

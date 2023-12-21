@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #3a9ecb;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --footer-background: #333;
+    --footer-text-color: #fff;
+    --header-background: #333;
+    --header-text-color: #fff;
+    --link-color: #fff;
+    --link-hover-color: var(--primary-color);
+    --event-border-color: var(--primary-color);
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding-bottom: 100px; /* Space for the footer */
+    min-height: 100vh; /* Full viewport height */
+    position: relative; /* For absolute positioning of the footer */
+    transition: background-color 0.3s;
+}
+
+header {
+    background: var(--header-background);
+    color: var(--header-text-color);
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header a:hover {
+    color: var(--link-hover-color);
+}
+
+header .highlight, header .current a {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.events li {
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    list-style-type: none;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.events li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+    color: var(--text-color);
+}
+
+footer {
+    background: var(--footer-background);
+    color: var(--footer-text-color);
+    text-align: center;
+    position: fixed; /* Change to fixed for constant visibility */
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+
+    header .navbar {
+        flex-direction: column;
+    }
+
+    .events li {
+        border-radius: 0;
+    }
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

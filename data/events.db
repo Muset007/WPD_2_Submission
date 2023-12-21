@@ -1,0 +1,13 @@
+{"title":"Tesla","description":"Test Drive","date":{"$$date":1700092800000},"category":"campus_events","organizer":"CPBFPiFRoIjY2f4Z","_id":"2fp6qwaMEqQbaIBn","time":"00:56","place":"ALU"}
+{"title":"Carrer Week 1","description":"Open Cermony","date":{"$$date":1700006400000},"category":"networking","organizer":"8nQfpHgGtIk31bJC","_id":"9UWOnnbeswe7yfpq","time":"03:51","place":"MU"}
+{"title":"Amazone","description":"Meet ","date":{"$$date":1701648000000},"time":"13:16","place":"HeadQuarter","category":"networking","organizer":"By8AqhFzZNLOo4n3","_id":"BBycgMssyvQ9rei2"}
+{"title":"AWS ","description":"Meet and Greet ","date":{"$$date":1699833600000},"category":"campus_events","organizer":"CPBFPiFRoIjY2f4Z","_id":"KTu338hSQ2mbEscF","time":"00:51","place":"NY"}
+{"title":"ALC TEDx","description":"Fred Swaniker","date":{"$$date":1700006400000},"category":"professional_development","organizer":"CPBFPiFRoIjY2f4Z","_id":"P9hpkpku2FdKpuBL","time":"00:57","place":"Port Louis"}
+{"title":"Google","description":"campus","date":{"$$date":1700092800000},"category":"campus_events","organizer":"8nQfpHgGtIk31bJC","_id":"dPkabKwvxXmArrZg","time":"00:58","place":"Madrid"}
+{"title":"Carrer Week 2","description":"Meet Founders","date":{"$$date":1700611200000},"category":"campus_events","organizer":"8nQfpHgGtIk31bJC","_id":"uqPa6RxQMWYqOZHS","time":"00:55","place":"ALU"}
+{"title":"Re Union","description":"Get Together and Catch ","date":"2023-12-30","time":"18:58","place":"ALC CAMPUS","category":"networking","organizer":"By8AqhFzZNLOo4n3","_id":"kCbjeGY8a8SKU0Vz"}
+{"title":"Carrer Week 2","description":"Meet Founders","date":{"$$date":1700611200000},"category":"networking","organizer":"8nQfpHgGtIk31bJC","_id":"uqPa6RxQMWYqOZHS","time":"00:55","place":"ALU"}
+{"$$deleted":true,"_id":"kCbjeGY8a8SKU0Vz"}
+{"title":"ReUnion","description":"Catch up Call ","date":"2023-12-30","time":"07:06","place":"ALU-Rwanda","category":"networking","organizer":"NnKxDk7ussHOtcMW","_id":"EIkBJ8KCPryjwKxL"}
+{"title":"ReUnion","description":"Catch up Call ","date":{"$$date":1703894400000},"time":"07:06","place":"ALU-Rwanda","category":"campus_events","organizer":"NnKxDk7ussHOtcMW","_id":"EIkBJ8KCPryjwKxL"}
+{"$$deleted":true,"_id":"EIkBJ8KCPryjwKxL"}
