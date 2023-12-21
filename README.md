@@ -18,7 +18,7 @@ Follow these steps to set up your environment:
 
 3. Install the required npm packages by running the following command:
 
-#bash
+##bash
 npm install
 
 Required Packages
@@ -34,13 +34,13 @@ EJS - If you're using EJS templating engine as indicated by the res.render funct
 nedb - A lightweight JavaScript database, assumed as usersDb and eventsDb are database instances.
 To install these packages, use:
 
-#bash
+##bash
 npm install express bcryptjs express-session body-parser ejs nedb
 
 Running the Application
 To start the application, you'll typically have a start script defined in your package.json. If not, you can run the application using node directly:
 
-#bash
+##bash
 node app.js
 
 Usage
