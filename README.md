@@ -30,6 +30,7 @@ Based on the provided `alumni.js` and `events.js` files, your application will r
 - **EXPRESS** - The framework used to create the server and manage routes.
 - **BCRYPTJS** - Used for hashing passwords before storing them in the database.
 - **EXPRESS-SESSION** - To manage user sessions (assumed as it's used but not shown in the provided code).
+- **DOTENV** - To load environment variables from a .env file into process.env.
 
 You may also need the following packages, which are commonly used alongside the ones provided:
 
@@ -40,7 +41,7 @@ You may also need the following packages, which are commonly used alongside the 
 To install these packages, use:
 
    ```bash
-   npm install express bcryptjs express-session body-parser ejs nedb
+   npm install express bcryptjs express-session body-parser ejs nedb dotenv
    ```
 
 ## Running the Application
