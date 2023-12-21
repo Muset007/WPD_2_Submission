@@ -43,7 +43,7 @@ To start the application, you'll typically have a start script defined in your p
 ```bash
 node app.js
 
-# Usage
+## Usage
 After running the server, you can access the application via a web browser:
 http://localhost:3000/
 
